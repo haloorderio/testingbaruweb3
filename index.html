@@ -1,0 +1,184 @@
+Hakim, [12/23/23 5:28 PM]
+<html>
+<head>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url("background.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      color: white;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+
+    .hero-content a {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #ff9900;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 10px;
+    }
+
+    .services {
+      padding: 60px 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+    }
+
+    .service-card {
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .service-card h3 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .service-card button {
+      padding: 10px 20px;
+      background-color: #ff9900;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .footer {
+      padding: 20px;
+      background-color: #333333;
+      color: white;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Kreasi Copywriting</h1>
+        <p>Jasa penulisan teks promosi yang menarik, persuasif, dan sesuai dengan target pasar Anda.</p>
+        <a href="#services">Lihat Layanan</a>
+      </div>
+    </div>
+    <div class="services" id="services">
+      <div class="service-card">
+        <h3>Website Copy</h3>
+        <p>Kami akan menulis teks untuk website Anda, mulai dari headline, subheadline, call to action, hingga testimoni.</p>
+        <button onclick="order('Website Copy')">Pesan Sekarang</button>
+      </div>
+      <div class="service-card">
+        <h3>Social Media Copy</h3>
+        <p>Kami akan menulis teks untuk postingan media sosial Anda, baik itu untuk Facebook, Instagram, Twitter, atau platform lainnya.</p>
+        <button onclick="order('Social Media Copy')">Pesan Sekarang</button>
+      </div>
+      <div class="service-card">
+        <h3>Email Copy</h3>
+        <p>Kami akan menulis teks untuk email marketing Anda, baik itu untuk mengirim newsletter, promosi, follow up, atau reminder.</p>
+        <button onclick="order('Email Copy')">Pesan Sekarang</button>
+      </div>
+    </div>
+    <div class="footer">
+      <p>Kreasi Copywriting © 2023. Powered by Web3.</p>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+  <script>
+    // Initialize web3
+    const web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
+
+    // Define contract address and ABI
+    const contractAddress = "0x123456789abcdef0123456789abcdef012345678";
+    const contractABI = [
+      {
+        "inputs": [
+          {
+            "internalType": "string",
+            "name": "_service",
+            "type": "string"
+          }
+        ],
+        "name": "order",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    ];
+
+    // Create contract instance
+    const contract = new web3.eth.Contract(contractABI, contractAddress);
+
+    // Define order function
+    async function order(service) {
+      // Check if user has a web3-enabled browser
+      if (window.ethereum) {
+        try {
+          // Request access to user's account
+await window.ethereum.request({ method: 'eth_requestAccounts' });
+          // Get user's account address
+          const accounts = await web3.eth.getAccounts();
+          const account = accounts[0];
+          // Call contract's order function
+          await contract.methods.order(service).send({ from: account });
+          // Show success message
+          alert("Pesanan Anda berhasil!");
+        } catch (error) {
+          // Show error message
+          alert(error.message);
+        }
+      } else {
+        // Show warning message
+        alert("Anda memerlukan browser yang mendukung web3 untuk menggunakan layanan ini.");
+      }
+    }
+  </script>
+</body>
+</html>
