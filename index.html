@@ -1,228 +1,187 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container {
-      width: 80%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .hero {
-      height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-image: url("background.jpg");
-      background-size: cover;
-      background-position: center;
-    }
-
-    .hero-content {
-      color: white;
-      text-align: center;
-    }
-
-    .hero-content h1 {
-      font-size: 48px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    .hero-content p {
-      font-size: 24px;
-      margin-bottom: 40px;
-    }
-
-    .hero-content a {
-      display: inline-block;
-      padding: 15px 30px;
-      background-color: #ff9900;
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      border-radius: 10px;
-    }
-
-    .services {
-      padding: 60px 0;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 20px;
-    }
-
-    .service-card {
-      background-color: white;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .service-card h3 {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .service-card p {
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
-
-    .service-card button {
-      padding: 10px 20px;
-      background-color: #ff9900;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .banner {
-      padding: 20px;
-      background-color: #333333;
-      color: white;
-      text-align: center;
-    }
-
-    .banner h2 {
-      font-size: 36px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .banner p {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    .banner a {
-      display: inline-block;
-      padding: 15px 30px;
-      background-color: #ff9900;
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      border-radius: 10px;
-    }
-
-    .footer {
-      padding: 20px;
-      background-color: #333333;
-      color: white;
-      text-align: center;
-    }
-
-    .footer p {
-      font-size: 16px;
-    }
-
-    /* Responsive web design */
-
-    @media (max-width: 768px) {
-      .hero {
-        height: 60vh;
-      }
-
-      .hero-content h1 {
-        font-size: 36px;
-      }
-
-      .hero-content p {
-        font-size: 20px;
-      }
-
-      .hero-content a {
-        font-size: 16px;
-      }
-
-      .services {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .service-card h3 {
-        font-size: 20px;
-      }
-
-      .service-card p {
-        font-size: 16px;
-      }
-
-      .service-card button {
-        font-size: 14px;
-      }
-
-      .banner h2 {
-        font-size: 30px;
-      }
-
-      .banner p {
-        font-size: 20px;
-      }
-
-      .banner a {
-        font-size: 16px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .services {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* SEO Google */
-
-    <meta name="description" content="Kreasi Copywriting adalah jasa penulisan teks promosi yang menarik, persuasif, dan sesuai dengan target pasar Anda. Kami menawarkan berbagai layanan, mulai dari website copy, social media copy, hingga email copy. Dapatkan diskon 50% untuk semua layanan jika Anda mendaftar sebelum 31 Desember 2023.">
-    <meta name="keywords" content="kreasi copywriting, jasa penulisan teks, jasa penulisan teks promosi, jasa penulisan website, jasa penulisan media sosial, jasa penulisan email, diskon jasa penulisan">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kreasi Copywriting | Jasa Penulisan Teks Promosi</title>
-  </style>
+    <title>Jasa Kreasi Copywriting</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <div class="container">
-    <div class="hero">
-      <div class="hero-content">
-        <h1>Kreasi Copywriting</h1>
-        <p>Jasa penulisan teks promosi yang menarik, persuasif, dan sesuai dengan target pasar Anda.</p>
-        <a href="#services">Lihat Layanan</a>
-      </div>
-    </div>
-    <div class="services" id="services">
-      <div class="service-card">
-        <h3>Website Copy</h3>
-        <p>Kami akan menulis teks untuk website Anda, mulai dari headline, subheadline, call to action, hingga testimoni.</p>
-        <button>Pesan Sekarang</button>
-      </div>
-      <div class="service-card">
-        <h3>Social Media Copy</h3>
-        <p>Kami akan menulis teks untuk postingan media sosial Anda, baik itu untuk Facebook, Instagram, Twitter, atau platform lainnya.</p>
-        <button>Pesan Sekarang</button>
-      </div>
-      <div class="service-card">
-        <h3>Email Copy</h3>
-        <p>Kami akan menulis teks untuk email marketing Anda, baik itu untuk mengirim newsletter, promosi, follow up, atau reminder.</p>
-        <button>Pesan Sekarang</button>
-      </div>
-    </div>
-    <div class="banner">
-      <h2>Dapatkan Diskon 50% untuk Semua Layanan</h2>
-      <p>Khusus untuk pelanggan baru yang mendaftar sebelum 31 Desember 2023.</p>
-      <a href="#">Daftar Sekarang</a>
-    </div>
-    <div class="footer">
-      <p>Kreasi Copywriting © 2023. All rights reserved.</p>
-    </div>
-  </div>
+    <header>
+        <nav>
+            <div class="container">
+                <h1>Jasa Kreasi Copywriting</h1>
+                <ul>
+                    <li><a href="#services">Layanan</a></li>
+                    <li><a href="#portfolio">Portofolio</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="hero">
+            <div class="container">
+                <h2>Kreasi Copywriting yang<br> Menarik Perhatian</h2>
+                <p>Dapatkan konten berkualitas untuk bisnis Anda.</p>
+                <a href="#contact" class="btn">Hubungi Kami</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="services">
+        <div class="container">
+            <h2>Layanan Kami</h2>
+            <div class="services-grid">
+                <div class="service">
+                    <h3>Copywriting Kreatif</h3>
+                    <p>Kami menciptakan teks yang menarik dan kreatif untuk iklan, situs web, dan media sosial Anda.</p>
+                </div>
+                <div class="service">
+                    <h3>Penyuntingan Teks</h3>
+                    <p>Kami menyempurnakan teks Anda untuk memastikan pesan yang jelas dan konsisten.</p>
+                </div>
+                <div class="service">
+                    <h3>Strategi Konten</h3>
+                    <p>Kami membantu merencanakan strategi konten yang efektif untuk meningkatkan visibilitas dan konversi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <h2>Portofolio</h2>
+            <!-- Di sini Anda bisa menampilkan contoh-contoh pekerjaan copywriting -->
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Hubungi Kami</h2>
+            <form action="#" method="post">
+                <input type="text" name="nama" placeholder="Nama" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="pesan" placeholder="Pesan" required></textarea>
+                <button type="submit" class="btn">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Jasa Kreasi Copywriting</p>
+        </div>
+    </footer>
 </body>
+
 </html>
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Header styles */
+header {
+    background: #f4f4f4;
+    padding: 20px 0;
+}
+
+header nav ul {
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Hero section styles */
+.hero {
+    text-align: center;
+    padding: 50px 0;
+    color: #333;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/* Services section styles */
+#services {
+    padding: 50px 0;
+    background: #e9e9e9;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.service {
+    background: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.service h3 {
+    margin-bottom: 10px;
+}
+
+/* Contact section styles */
+#contact {
+    padding: 50px 0;
+}
+
+form input,
+form textarea,
+form button {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+form button {
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #555;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #333;
+    color: #fff;
+}
+
+footer p {
+    margin: 0;
+}
