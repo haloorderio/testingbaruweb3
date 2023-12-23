@@ -87,6 +87,35 @@
       cursor: pointer;
     }
 
+    .banner {
+      padding: 20px;
+      background-color: #333333;
+      color: white;
+      text-align: center;
+    }
+
+    .banner h2 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .banner p {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .banner a {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #ff9900;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 10px;
+    }
+
     .footer {
       padding: 20px;
       background-color: #333333;
@@ -97,6 +126,67 @@
     .footer p {
       font-size: 16px;
     }
+
+    /* Responsive web design */
+
+    @media (max-width: 768px) {
+      .hero {
+        height: 60vh;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+      }
+
+      .hero-content p {
+        font-size: 20px;
+      }
+
+      .hero-content a {
+        font-size: 16px;
+      }
+
+      .services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .service-card h3 {
+        font-size: 20px;
+      }
+
+      .service-card p {
+        font-size: 16px;
+      }
+
+      .service-card button {
+        font-size: 14px;
+      }
+
+      .banner h2 {
+        font-size: 30px;
+      }
+
+      .banner p {
+        font-size: 20px;
+      }
+
+      .banner a {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .services {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* SEO Google */
+
+    <meta name="description" content="Kreasi Copywriting adalah jasa penulisan teks promosi yang menarik, persuasif, dan sesuai dengan target pasar Anda. Kami menawarkan berbagai layanan, mulai dari website copy, social media copy, hingga email copy. Dapatkan diskon 50% untuk semua layanan jika Anda mendaftar sebelum 31 Desember 2023.">
+    <meta name="keywords" content="kreasi copywriting, jasa penulisan teks, jasa penulisan teks promosi, jasa penulisan website, jasa penulisan media sosial, jasa penulisan email, diskon jasa penulisan">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kreasi Copywriting | Jasa Penulisan Teks Promosi</title>
   </style>
 </head>
 <body>
@@ -112,72 +202,27 @@
       <div class="service-card">
         <h3>Website Copy</h3>
         <p>Kami akan menulis teks untuk website Anda, mulai dari headline, subheadline, call to action, hingga testimoni.</p>
-        <button onclick="order('Website Copy')">Pesan Sekarang</button>
+        <button>Pesan Sekarang</button>
       </div>
       <div class="service-card">
         <h3>Social Media Copy</h3>
         <p>Kami akan menulis teks untuk postingan media sosial Anda, baik itu untuk Facebook, Instagram, Twitter, atau platform lainnya.</p>
-        <button onclick="order('Social Media Copy')">Pesan Sekarang</button>
+        <button>Pesan Sekarang</button>
       </div>
       <div class="service-card">
         <h3>Email Copy</h3>
         <p>Kami akan menulis teks untuk email marketing Anda, baik itu untuk mengirim newsletter, promosi, follow up, atau reminder.</p>
-        <button onclick="order('Email Copy')">Pesan Sekarang</button>
+        <button>Pesan Sekarang</button>
       </div>
     </div>
+    <div class="banner">
+      <h2>Dapatkan Diskon 50% untuk Semua Layanan</h2>
+      <p>Khusus untuk pelanggan baru yang mendaftar sebelum 31 Desember 2023.</p>
+      <a href="#">Daftar Sekarang</a>
+    </div>
     <div class="footer">
-      <p>Kreasi Copywriting © 2023. Powered by Web3.</p>
+      <p>Kreasi Copywriting © 2023. All rights reserved.</p>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
-  <script>
-    // Initialize web3
-    const web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
-
-    // Define contract address and ABI
-    const contractAddress = "0x123456789abcdef0123456789abcdef012345678";
-    const contractABI = [
-      {
-        "inputs": [
-          {
-            "internalType": "string",
-            "name": "_service",
-            "type": "string"
-          }
-        ],
-        "name": "order",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      }
-    ];
-
-    // Create contract instance
-    const contract = new web3.eth.Contract(contractABI, contractAddress);
-
-    // Define order function
-    async function order(service) {
-      // Check if user has a web3-enabled browser
-      if (window.ethereum) {
-        try {
-          // Request access to user's account
-await window.ethereum.request({ method: 'eth_requestAccounts' });
-          // Get user's account address
-          const accounts = await web3.eth.getAccounts();
-          const account = accounts[0];
-          // Call contract's order function
-          await contract.methods.order(service).send({ from: account });
-          // Show success message
-          alert("Pesanan Anda berhasil!");
-        } catch (error) {
-          // Show error message
-          alert(error.message);
-        }
-      } else {
-        // Show warning message
-        alert("Anda memerlukan browser yang mendukung web3 untuk menggunakan layanan ini.");
-      }
-    }
-  </script>
 </body>
 </html>
